@@ -1,0 +1,63 @@
+\ProvidesPackage{mystyle}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[]{multicol}
+\usepackage{multirow}
+
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,graphicx,braket,subfig,sidecap,caption,float,booktabs}
+\usepackage{color, mathtools, tabu}
+\usepackage[compact]{titlesec}  
+\titlespacing{\section}{-5pt}{15pt}{5pt}
+\titlespacing{\chapter}{-10pt}{-30pt}{20pt}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\usepackage[margin=1.5in]{geometry}
+\setlength{\topmargin}{-0.3in}
+\setlength{\parindent}{0pt}
+\usepackage[toc,page]{appendix}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage[none]{hyphenat} 
+\usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \fancyhead[LO,RE]{}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{lscape}
+\usepackage{tabu}
+\usepackage{tabto}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage[numbered,framed]{matlab-prettifier}
+\setcounter{MaxMatrixCols}{20}
+\usepackage{rotating}
+\usepackage{afterpage}
+
+\let\ph\mlplaceholder % shorter macro
+
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = `,
+  mlshowsectionrules = true,
+}
+
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\infdiv}{\infdivx}
+
+%Stuff used for the textbox
+\usepackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
+\newcommand{\placetextbox}[3]{
+  \setbox0=\hbox{#3}
+  \AddToShipoutPictureFG*{
+    \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}}}
